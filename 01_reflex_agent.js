@@ -23,16 +23,16 @@ function reflex_agent_D(location, state) {
 
 function test(states) {
     var ensuciar = false;
-    
+
     function iterate() {
         var location = states[0];
         var state = location == 'A' ? states[1] : states[2];
-        
+
         if (ensuciar) {
             var action = reflex_agent_D(location, state);
             console.log("Location: " + location + " | Action: " + action);
             document.getElementById("log").innerHTML += "<br>Location: " + location + " | Action: " + action;
-            
+
             if (action == "DIRTY") {
                 if (location == 'A') {
                     states[1] = "DIRTY";
@@ -50,7 +50,7 @@ function test(states) {
             var action = reflex_agent(location, state);
             console.log("Location: " + location + " | Action: " + action);
             document.getElementById("log").innerHTML += "<br>Location: " + location + " | Action: " + action;
-            
+
             if (action == "CLEAN") {
                 if (location == 'A') {
                     states[1] = "CLEAN";
@@ -65,10 +65,10 @@ function test(states) {
                 ensuciar = true;
             }
         }
-        
+
         setTimeout(iterate, 3000);
     }
-    
+
     iterate();
 }
 
